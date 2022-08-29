@@ -1,0 +1,38 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(87, 109, 156);
+    color: rgb(147, 161, 168);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.card {
+    text-decoration: none;
+    color: rgb(147, 161, 168);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 5px;
+    margin: 10px;
+}
+
+.img {
+    height: 100px;
+}
+
+.cargando {
+    width: 50px;
+}

@@ -1,0 +1,62 @@
+.LandingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(87, 109, 156);
+    background-image: url('../../images/Dieta-Mediterránea.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.text {
+    font-size: 3em;
+    font-family: 'Open Sans';
+    width: 100vw;
+    color: chocolate;
+    opacity: 0.8;
+    background-color: darkgrey;
+    border-radius: 30px;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 80px;
+    animation-duration: 3s;
+    animation-name: button;
+    animation-iteration-count: infinite;
+    opacity: 0.8;
+    padding: 5px;
+    opacity: 1;
+}
+
+.hand {
+    width: 80px;
+    padding-left: 80px;
+}
+
+
+@keyframes button {
+    50% {
+        transform: rotate(50deg);
+    }
+
+    50% {
+        transform: rotate(-50deg);
+    }
+}
+
+.img:hover {
+    opacity: 1;
+    width: 90px;
+    padding: 0px;
+}

@@ -1,0 +1,21 @@
+.NavBar {
+    background-color: rgb(136, 185, 187);
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: x-large;
+    opacity: 0.5;
+}
+
+.img {
+    height: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.img:hover {
+    height: 32px;
+}

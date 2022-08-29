@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-style: italic;
+    font-size: small;
+}
+
+.organizeGroup {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.organize {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-style: italic;
+    font-size: small;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

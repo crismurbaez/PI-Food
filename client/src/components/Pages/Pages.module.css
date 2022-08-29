@@ -1,0 +1,19 @@
+.list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.button:focus {
+    background-color: rgb(17, 30, 59);
+    color: blanchedalmond;
+
+}

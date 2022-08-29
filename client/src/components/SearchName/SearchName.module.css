@@ -1,0 +1,30 @@
+.container {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-style: italic;
+    font-size: smaller;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+}

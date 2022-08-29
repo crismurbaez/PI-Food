@@ -1,0 +1,26 @@
+.detail {
+    background-color: rgb(87, 109, 156);
+
+}
+
+.container {
+    margin: 30px;
+}
+
+.img {
+    width: 100%;
+    border-radius: 30px 30px 10px 10px;
+    margin: 0 auto;
+
+}
+
+
+.diet {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cargando {
+    width: 50px;
+}
