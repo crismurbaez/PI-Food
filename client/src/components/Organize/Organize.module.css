@@ -7,12 +7,18 @@
 }
 
 .organizeGroup {
+    background-color: rgb(220, 231, 231);
+    opacity: 0.8;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 20px;
+    border-style: dotted;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
 }
 
 .organize {
@@ -22,5 +28,5 @@
     font-style: italic;
     font-size: small;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }

@@ -1,18 +1,80 @@
 .detail {
+    display: flex;
+    justify-content: center;
     background-color: rgb(87, 109, 156);
+    /* background-image: url('../../images/Pizarra.jpg'); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* max-width: 1000px; */
+}
 
+.imgHome {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    background-color: rgb(131, 146, 179);
+    box-shadow: 3.9px 7.8px 20px hsl(0deg 0% 0% / 0.38);
+    border-radius: 10px;
+    /* border-style: dashed; */
 }
 
 .container {
+    background-color: rgb(17, 30, 59);
+    color: rgb(147, 161, 168);
     margin: 30px;
+    max-width: 1000px;
+    margin: 20px;
+    border-radius: 50px;
+}
+
+.containerImg {
+    position: relative;
+    margin: 40px;
+
 }
 
 .img {
-    width: 100%;
-    border-radius: 30px 30px 10px 10px;
+    width: 45%;
+    border-radius: 30px;
     margin: 0 auto;
-
+    position: absolute;
 }
+
+.containerText1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    max-width: 400px;
+    position: relative;
+    margin: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* border-style: dotted; */
+}
+
+.Text1 {
+    width: 80%;
+    height: 80%;
+    margin: 20px;
+    position: absolute;
+    /* border-style: double; */
+}
+
+.containerText2 {
+    margin: 60px;
+    font-family: Georgia, Times, Times New Roman, serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.imgPizarra {
+    width: 100%;
+    border-radius: 30px;
+    margin: 0 auto;
+    /* position: absolute; */
+}
+
 
 
 .diet {
@@ -23,4 +85,10 @@
 
 .cargando {
     width: 50px;
+}
+
+.imgHome:hover {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -6,7 +7,9 @@ import { getRecipesId, view404 } from "../../redux/actions";
 import s from './Detail.module.css';
 import imageLoader from '../../images/loader.gif'
 import imagestar from '../../images/estrella.png'
-import image404 from '../../images/404.webp'
+import image404 from '../../images/404.png'
+import imagepizarra from '../../images/Pizarra.jpg'
+import imageHome from '../../images/home.png'
 
 const Detail = ({ id }) => {
     const dispatch = useDispatch();
@@ -15,27 +18,77 @@ const Detail = ({ id }) => {
 
     useEffect(() => {
         (resultName)[1] === 'f' ? dispatch(view404(image404)) : dispatch(getRecipesId(id))
-
     }, [dispatch, id, resultName]);
-    console.log(recipe)
+    console.log('recipe', recipe)
+
 
     let n = 0;
 
     return (
         <div className={s.detail}>
+
+
             {
                 (recipe.length) ?
                     <div className={s.container}>
-                        <h2>{recipe[0].name}</h2>
-                        <img className={s.img} src={recipe[0].image} alt="img" />
-                        <div ><h4>Summary: </h4><p dangerouslySetInnerHTML={{ __html: recipe[0].summary, }} /></div>
-                        <div ><h4>Instructions: </h4><p dangerouslySetInnerHTML={{ __html: recipe[0].instructions, }} /></div>
-                        <div><h4>Score: </h4><img src={imagestar} alt="" width="20" height="20" />&nbsp;&nbsp;{recipe[0].healthScore}</div>
-                        <h4>Diets: </h4>
-                        <div className={s.diet}>{recipe[0].diets?.map((e) => {
-                            n++
-                            return (<p key={n}>&nbsp;&nbsp;&nbsp;{e} </p>)
-                        })}</div>
+                        <Link to={`/home`}>
+                            <img className={s.imgHome} src={imageHome} alt="Home" />
+                        </Link>
+                        <div className={s.containerText2}><h1>{recipe[0].name}</h1></div>
+
+                        <div className={s.containerImg}>
+
+                            <img className={s.img} src={recipe[0].image} alt="img" />
+                        </div>
+
+                        <div className={s.containerText1}>
+                            <img className={s.imgPizarra} src={imagepizarra} alt="img" />
+                            <div className={s.Text1}>
+                                <div>{recipe[0].healthScore}&nbsp;&nbsp;<img src={imagestar} alt="" width="20" height="20" /></div>
+                                <div>
+                                    <h3>Diets </h3>
+                                    <div className={s.diet}>{recipe[0].diets?.map((e) => {
+                                        n++
+                                        return (<p key={n}>&nbsp;&nbsp;&nbsp;{e}</p>)
+                                    })}</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className={s.containerText2}>
+                            <div ><p dangerouslySetInnerHTML={{ __html: recipe[0].summary, }} /></div>
+                        </div>
+
+                        <div className={s.containerText2}>
+                            {
+                                (recipe[0].stepByStep.length) ?
+                                    <div>
+                                        <h4>Step by step </h4>
+                                        <div>
+                                            {(recipe[0].stepByStep.length) ?
+                                                <div>
+                                                    {(recipe[0].stepByStep[0].steps?.map((e) => {
+                                                        return (
+                                                            <div>
+                                                                <p>{e.number}.&nbsp;{e.step}</p>
+                                                            </div>
+                                                        )
+                                                    }))}
+                                                </div>
+
+                                                :
+                                                <div></div>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    :
+                                    <div>
+                                        No step available.
+                                    </div>
+                            }
+                        </div>
 
                     </div>
                     :

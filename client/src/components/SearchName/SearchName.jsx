@@ -4,11 +4,12 @@ import { useDispatch } from 'react-redux';
 import { nameRecipes } from '../../redux/actions';
 import { useSelector } from "react-redux";
 import { getRecipes } from "../../redux/actions";
+import { recipeReset } from "../../redux/actions";
 import { recipesReset } from "../../redux/actions";
 import { nameReset } from "../../redux/actions";
 import { currentPageReset, copyRecipes, view404 } from "../../redux/actions";
 import imagelupe from '../../images/Lupa3.png'
-import image404 from '../../images/404.webp'
+import image404 from '../../images/404.png'
 import s from './SearchName.module.css';
 
 const SearchName = () => {
@@ -45,6 +46,7 @@ const SearchName = () => {
     const handleOnAllRecipes = () => {
         dispatch(currentPageReset());
         dispatch(recipesReset())
+        dispatch(recipeReset())
         dispatch(nameReset())
         if (alldataMemory.length === 0) {
             dispatch(getRecipes())
@@ -60,29 +62,34 @@ const SearchName = () => {
         <div className={s.container}>
             <div className={s.search}>
                 <div className={s.all}><button
-                    className={s.button}
+                    className={s.buttonAll}
                     onClick={handleOnAllRecipes}
                 >
-                    All
+                    All recipes
                 </button></div>
                 <form>
+
                     <input
                         className={s.input}
                         type="text"
-                        placeholder="Search name"
+                        placeholder="Search recipes..."
                         onChange={handleOnChange}
                         value={input}
                     />
+
+
                     <button
-                        className={s.button}
+                        className={s.buttonLupe}
                         type="submit"
                         onClick={handleOnSubmit}
                     > <img src={imagelupe} alt="Search" width="20" height="20" /> </button>
+
+
                 </form>
 
 
             </div>
-            <div>{resultName[0]}{resultName[1]}</div>
+            <div className={s.result}>{resultName[0]}</div>
         </div>
 
 

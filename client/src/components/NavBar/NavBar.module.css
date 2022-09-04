@@ -1,21 +1,30 @@
 .NavBar {
     background-color: rgb(136, 185, 187);
-    height: 100px;
+    background-image: url('../../images/NavBar.png');
+    height: 200px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     font-weight: 400;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     font-size: x-large;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .img {
-    height: 30px;
+    height: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .img:hover {
-    height: 32px;
+    height: 52px;
+    opacity: 1;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    margin-left: 0px;
+    margin-right: 0px;
 }

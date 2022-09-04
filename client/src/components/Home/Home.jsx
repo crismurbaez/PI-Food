@@ -10,6 +10,7 @@ import { changePage } from "../../redux/actions";
 import s from './Home.module.css';
 import Card from '../Card/Card';
 import Pages from '../Pages/Pages';
+import NavBar from '../NavBar/NavBar';
 import imageLoader from '../../images/loader.gif'
 
 
@@ -18,7 +19,7 @@ const Home = () => {
     const recipes = useSelector((state) => { return state.recipes; });
     const currentPage = useSelector((state) => { return state.currentPage; });  //página actual
     const [currentRecipes, setcurrentRecipes] = useState([])  //array de recipes mostrados
-    const pagination = 15; //cantidad de videos por página
+    const pagination = 9; //cantidad de recipes por página
     const finalPage = currentPage * pagination; //final de página
     const initialPage = finalPage - pagination; //inicio de página
 
@@ -43,39 +44,43 @@ const Home = () => {
 
 
     return (
-        <div className={s.home}>
-            <div>
-                {
-                    currentRecipes.length > 0 ?
-                        <div>
-                            <div><Pages
-                                pagination={pagination}
-                                nRecipes={recipes.length}
-                                changePage={changePage}
-                            />
+        <div>
+            <NavBar />
+            <div className={s.home}>
+
+                <div>
+                    {
+                        currentRecipes.length > 0 ?
+                            <div>
+                                <div><Pages
+                                    pagination={pagination}
+                                    nRecipes={recipes.length}
+                                    changePage={changePage}
+                                />
+                                </div>
+                                <div className={s.cards}>
+                                    {currentRecipes.map((e) => {
+                                        return (
+                                            <Link className={s.card} key={e.id} to={`/home/recipes/${e.id}`}>
+                                                <Card
+                                                    key={e.id}
+                                                    id={e.id}
+                                                    name={e.name}
+                                                    image={e.image}
+                                                    diets={e.diets}
+                                                    healthScore={e.healthScore}
+                                                    summary={e.summary}
+                                                    stepByStep={e.stepByStep}
+                                                />
+                                            </Link>
+                                        )
+                                    })}
+                                </div>
                             </div>
-                            <div className={s.cards}>
-                                {currentRecipes.map((e) => {
-                                    return (
-                                        <Link className={s.card} key={e.id} to={`/home/recipes/${e.id}`}>
-                                            <Card
-                                                key={e.id}
-                                                id={e.id}
-                                                name={e.name}
-                                                image={e.image}
-                                                diets={e.diets}
-                                                healthScore={e.healthScore}
-                                                summary={e.summary}
-                                                stepByStep={e.stepByStep}
-                                            />
-                                        </Link>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                        :
-                        <div><img className={s.cargando} src={imageLoader} alt="Cargando...." /></div>
-                }
+                            :
+                            <div><img className={s.cargando} src={imageLoader} alt="Cargando...." /></div>
+                    }
+                </div>
             </div>
         </div>
     );

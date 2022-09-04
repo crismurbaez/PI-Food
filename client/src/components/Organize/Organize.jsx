@@ -28,7 +28,7 @@ const Organize = () => {
     return (
         <div className={s.container}>
             <div className={s.organizeGroup}>
-                <div>Ordenar por nombre</div>
+                <div>Sort by name</div>
                 <div className={s.organize} onChange={handleOnChangeName} >
                     <div> A-Z
                         <input
@@ -51,7 +51,7 @@ const Organize = () => {
             </div >
 
             <div className={s.organizeGroup}>
-                <div>Ordenar por rating</div>
+                <div>Sort by score</div>
                 <div className={s.organize} onChange={handleOnChangeScore}>
 
                     <div> Menor

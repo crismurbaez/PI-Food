@@ -15,16 +15,41 @@
     justify-content: space-between;
 }
 
-.button {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-}
+
 
 .input {
     width: 200px;
     height: 30px;
+
+    /* border-radius: 10px; */
+}
+
+.buttonAll {
+    background-color: rgb(202, 230, 231);
+    width: 80px;
+    height: 35px;
+    margin-left: 10px;
+    margin-right: 0px;
+    border-radius: 10px 0 0 10px;
+}
+
+.buttonLupe {
+    background-color: rgb(202, 230, 231);
+    width: 30px;
+    height: 35px;
+    padding-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 10px;
     border-radius: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.result {
+    width: 300px;
+    height: fit-content;
+    background-color: rgb(202, 230, 231);
+    opacity: 0.8;
+    border-radius: 10px;
+    margin: 10px;
+    /* border-style: dashed; */
 }

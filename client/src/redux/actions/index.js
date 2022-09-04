@@ -112,7 +112,7 @@ export const getRecipesId = (id) => {
             .then(dataApi => {
                 return dispatch({
                     type: GET_RECIPES_ID,
-                    payload: dataApi.data,
+                    payload: dataApi.data[0],
                 })
             })
             .catch((error) => {

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import imageHome from '../../images/home.png'
 import imageFlecha from '../../images/flecha.png'
 
 // import axios from 'axios';
@@ -24,11 +23,6 @@ const NavBar = () => {
             <div>
                 <Link to="/">
                     <img className={s.img} src={imageFlecha} alt="LandingPage" />
-                </Link>
-            </div>
-            <div>
-                <Link to="/home">
-                    <img className={s.img} src={imageHome} alt="Home" />
                 </Link>
             </div>
             <div><Organize /></div>

@@ -13,7 +13,7 @@
     opacity: 0.8;
     border-radius: 30px;
     transition: 0.2s;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .diets {
@@ -30,7 +30,9 @@
 
 .card:hover {
     box-shadow: 3.9px 7.8px 20px hsl(0deg 0% 0% / 0.38);
-    width: 310px;
+    height: 310px;
     opacity: 1;
+    margin-top: 0px;
+    margin-bottom: 0px;
     /* padding: 5px; */
 }

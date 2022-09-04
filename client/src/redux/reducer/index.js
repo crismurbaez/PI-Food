@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, action) => {
             const filterNames = state.recipes.filter((e) => {
                 return (e.name.toUpperCase().includes(action.payload.toUpperCase()))
             });
-            const result = (filterNames.length) ? [filterNames, `Se encontraron ${filterNames.length} resultados para: ${action.payload}`, 'e'] : [state.recipes, `No se encontró ningún resultado para ${action.payload}`, 'f'];
+            const result = (filterNames.length) ? [filterNames, `${filterNames.length} result by: ${action.payload}`, 'e'] : [state.recipes, `No results found for ${action.payload}`, 'f'];
             //guardo el name de búsqueda en name. En resultName[1] el éxito o fracaso, y en resultName[0] el array filtrado.
             return {
                 ...state,
@@ -120,6 +120,8 @@ const rootReducer = (state = initialState, action) => {
                     image: action.payload,
                     diets: ['404'],
                     healthScore: 0,
+                    stepByStep: [],
+                    summary: '---------------------------------------------------PAGE NOT FOUND--------------------------------------------------------------'
                     // released: Date(),
                     // platform: [{ id: '404', name: 'PAGE NOT FOUND' }],
                     // description: [<div>'Page not found'</div>]
