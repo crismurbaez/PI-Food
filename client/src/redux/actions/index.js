@@ -11,6 +11,9 @@ export const RECIPE_ORDEN_SCORE = 'RECIPE_ORDEN_SCORE';
 export const COPY_RECIPES = 'COPY_RECIPES';
 export const VIEW_404 = 'VIEW_404';
 export const GET_RECIPES_ID = 'GET_RECIPES_ID';
+export const GET_DIETS = 'GET_DIETS';
+export const FILTER_DIETS = 'FILTER_DIETS';
+
 //instalé axios
 
 
@@ -27,9 +30,71 @@ export const getRecipes = () => {
             .catch((error) => {
                 console.log(error);
             })
+    }
+};
+
+export const getDiets = () => {
+    return (dispatch) => {
+        axios.get('http://localhost:3001/diets')
+            .then(dataApi => {
+                return dispatch({
+                    type: GET_DIETS,
+                    payload: dataApi.data,
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+    }
+};
+
+export const filterDiets = (diet) => {
+
+    return {
+        type: FILTER_DIETS,
+        payload: diet,
+    }
+};
+
+export const getRecipesId = (id) => {
+
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/recipes/${id}`)
+            .then(dataApi => {
+                return dispatch({
+                    type: GET_RECIPES_ID,
+                    payload: dataApi.data[0],
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
 
     }
 
+};
+
+export function nameRecipes(name) {
+    //si hago el filtro en el back
+    return (dispatch) => {
+        axios.get(`http://localhost:3001/recipes?name=${name}`)
+            .then(dataApi => {
+                return dispatch({
+                    type: RECIPE_NAME,
+                    payload: dataApi.data,
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+    }
+    //si hago el filtro en el front 
+    // return {
+    //     type: RECIPE_NAME,
+    //     payload: name,
+    // }
 };
 
 export const recipeReset = () => {
@@ -57,12 +122,7 @@ export const changePage = (page) => {
 
 };
 
-export function nameRecipes(name) {
-    return {
-        type: RECIPE_NAME,
-        payload: name,
-    }
-};
+
 
 export const nameReset = () => {
 
@@ -105,20 +165,3 @@ export function view404(image404) {
     }
 };
 
-export const getRecipesId = (id) => {
-
-    return (dispatch) => {
-        axios.get(`http://localhost:3001/recipes/${id}`)
-            .then(dataApi => {
-                return dispatch({
-                    type: GET_RECIPES_ID,
-                    payload: dataApi.data[0],
-                })
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-
-    }
-
-};

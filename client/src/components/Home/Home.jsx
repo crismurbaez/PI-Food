@@ -17,6 +17,7 @@ import imageLoader from '../../images/loader.gif'
 const Home = () => {
     const dispatch = useDispatch();
     const recipes = useSelector((state) => { return state.recipes; });
+
     const currentPage = useSelector((state) => { return state.currentPage; });  //página actual
     const [currentRecipes, setcurrentRecipes] = useState([])  //array de recipes mostrados
     const pagination = 9; //cantidad de recipes por página

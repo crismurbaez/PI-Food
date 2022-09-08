@@ -11,6 +11,8 @@ import {
     COPY_RECIPES,
     VIEW_404,
     GET_RECIPES_ID,
+    GET_DIETS,
+    FILTER_DIETS,
 } from '../actions/index'
 
 
@@ -18,6 +20,8 @@ const initialState = {
     alldataMemory: [],
     recipes: [],
     recipe: [],
+    diets: [],
+    diet: [],
     name: '',
     resultName: [],
     orden: '',
@@ -29,8 +33,64 @@ const rootReducer = (state = initialState, action) => {
         case GET_RECIPES:
             return {
                 ...state,
-                recipes: action.payload,
-                alldataMemory: action.payload,
+                recipes: action.payload[0],
+                alldataMemory: action.payload[0],
+
+            }
+
+        case GET_DIETS:
+
+            return {
+                ...state,
+                diets: action.payload,
+            }
+
+
+        case FILTER_DIETS:
+
+            return {
+                ...state,
+                recipes: state.alldataMemory.filter((e) => {
+                    return (e.diets.includes(action.payload))
+                })
+            }
+
+        case RECIPE_NAME:
+            //filtro que funciona haciendo el pedido al back
+            //en payload puedo traer un array con los resultados que obtenía acá en el front
+            //En payload me trae los datos con esta estructura:
+            //guardo el name de búsqueda en name. 
+            //en resultName[0] guardo el texto que muestra el front del resultado de la búsqueda
+            // en resultName[1] guardo el éxito (e) o fracaso (f) de la búsqueda
+            // en recipes guardo el array filtrado por name
+            return {
+                ...state,
+                recipes: action.payload[0].recipes,
+                name: action.payload[0].name,
+                resultName: action.payload[0].resultName,
+            }
+
+
+
+
+        //filtro que funciona en el front sin hacer el pedido al back
+        // const filterNames = state.recipes.filter((e) => {
+        //     return (e.name.toUpperCase().includes(action.payload.toUpperCase()))
+        // });
+        // const result = (filterNames.length) ? [filterNames, `${filterNames.length} result by: ${action.payload}`, 'e'] : [state.recipes, `No results found for ${action.payload}`, 'f'];
+        // //guardo el name de búsqueda en name. En resultName[1] el éxito o fracaso, y en resultName[0] el array filtrado.
+        // return {
+        //     ...state,
+        //     name: action.payload,
+        //     resultName: [result[1], result[2]],
+        //     recipes: result[0],
+        // }
+        case NAME_RESET:
+
+            return {
+                ...state,
+                name: [],
+                resultName: [],
             }
         case RECIPE_RESET:
             return {
@@ -46,25 +106,6 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPage: action.payload,
-            }
-        case RECIPE_NAME:
-            const filterNames = state.recipes.filter((e) => {
-                return (e.name.toUpperCase().includes(action.payload.toUpperCase()))
-            });
-            const result = (filterNames.length) ? [filterNames, `${filterNames.length} result by: ${action.payload}`, 'e'] : [state.recipes, `No results found for ${action.payload}`, 'f'];
-            //guardo el name de búsqueda en name. En resultName[1] el éxito o fracaso, y en resultName[0] el array filtrado.
-            return {
-                ...state,
-                name: action.payload,
-                resultName: [result[1], result[2]],
-                recipes: result[0],
-            }
-        case NAME_RESET:
-
-            return {
-                ...state,
-                name: [],
-                resultName: [],
             }
         case CURRENT_PAGE_RESET:
             return {

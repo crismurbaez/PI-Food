@@ -16,18 +16,21 @@ const SearchName = () => {
     const [input, setInput] = useState(""); //En el input se ingresa el name
 
     const resultName = useSelector((state) => { return state.resultName; })
-    const alldataMemory = useSelector((state) => { return state.alldataMemory; })
+
     const dispatch = useDispatch();
 
+    //cambiar esto, mandar el 404 al back, para que no me muestre nada
+    //tal vez hacer una página de 404
     useEffect(() => {
         (resultName)[1] === 'f' ? dispatch(view404(image404)) : console.log('no despacho nada')
     }, [resultName, dispatch]);
 
-    const radioCheckedFalse = () => {
+    const radioCheckedFalseandAllDiets = () => {
         document.getElementById('a-z').checked = false;
         document.getElementById('z-a').checked = false;
         document.getElementById('p').checked = false;
         document.getElementById('u').checked = false;
+        document.getElementById('diets').value = "All diets...";
     }
 
     const handleOnChange = (e) => {
@@ -36,25 +39,22 @@ const SearchName = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        if (input !== "") {
+        if (input.trim() !== "") {
             dispatch(currentPageReset());
-            dispatch(nameRecipes(input));
+            dispatch(nameRecipes(input.trim()));
             setInput("");
-            radioCheckedFalse()
+            radioCheckedFalseandAllDiets()
         }
     }
+    // poner en componente aparte
     const handleOnAllRecipes = () => {
         dispatch(currentPageReset());
         dispatch(recipesReset())
         dispatch(recipeReset())
         dispatch(nameReset())
-        if (alldataMemory.length === 0) {
-            dispatch(getRecipes())
-        } else {
-            dispatch(copyRecipes())
-        }
-
-        radioCheckedFalse()
+        dispatch(getRecipes())
+        dispatch(copyRecipes())
+        radioCheckedFalseandAllDiets()
     }
 
 
@@ -64,6 +64,7 @@ const SearchName = () => {
                 <div className={s.all}><button
                     className={s.buttonAll}
                     onClick={handleOnAllRecipes}
+                // poner en componente aparte
                 >
                     All recipes
                 </button></div>
