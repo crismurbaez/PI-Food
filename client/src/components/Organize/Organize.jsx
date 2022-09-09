@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -13,14 +13,18 @@ import {
     recipeReset,
     nameReset,
     copyRecipes,
+    resultDietReset,
 } from "../../redux/actions";
 import s from './Organize.module.css';
 
 const Organize = () => {
+
     let n = 0;
     const dispatch = useDispatch();
     const diets = useSelector((state) => { return state.diets; })
     const resultName = useSelector((state) => { return state.resultName; });
+    const resultDiets = useSelector((state) => { return state.resultDiets; });
+    const [diet, setDiet] = useState("All Diets...");
 
     useEffect(() => {  //pido al back todos las diets sólo si el store está vacío
         (diets).length === 0 ? dispatch(getDiets()) : console.log('no despacho nada el diets')
@@ -41,28 +45,32 @@ const Organize = () => {
     }
     // poner en componente aparte
     const handleOnChangeDiets = (e) => {
-        const diet = e.target.value
+        setDiet(e.target.value);
         console.log(diet)
-        if (diet === 'All diets...') {
-            console.log('elige una opción')
-            dispatch(currentPageReset())
-            dispatch(recipesReset())
-            dispatch(recipeReset())
-            dispatch(nameReset())
-            dispatch(getRecipes())
-            dispatch(copyRecipes())
+        if (e.target.value === "All diets...") {
+            console.log('All diets...');
+            dispatch(currentPageReset());
+            dispatch(recipesReset());
+            dispatch(recipeReset());
+            dispatch(nameReset());
             dispatch(getRecipes());
+            dispatch(copyRecipes());
+            dispatch(getRecipes());
+            dispatch(resultDietReset());
         } else if
             (resultName[1] === 'f') {
             console.log('no hay recipes')
         } else {
-
-            dispatch(filterDiets(diet))
+            (resultDiets.includes(e.target.value)) ?
+                console.log('ya filtraste con  ' + e.target.value)
+                :
+                dispatch(filterDiets(e.target.value))
         }
     }
 
 
     console.log('diets', diets)
+
     return (
         <div className={s.container}>
             <div className={s.organizeGroup}>
@@ -113,13 +121,19 @@ const Organize = () => {
             </div>
             {/* poner en componente aparte */}
             <div className={s.organizeGroup}>
-                <select id='diets' name="select" onChange={handleOnChangeDiets}>
-                    <option value="All diets..." selected key={n}>All diets...</option>
+                <select value={diet} id='diets' name="select" onChange={handleOnChangeDiets}>
+                    <option value="All diets..." key={n}>All diets...</option>
                     {diets?.map((e) => {
                         n++
                         return <option value={e} key={n}>{e}</option>
                     })}
                 </select>
+                <div className={s.resultDiets}>
+                    {(resultDiets.map((e, i) => {
+                        return (<p key={i} >{e}</p>)
+                    }))}
+                </div>
+
             </div>
 
         </div >

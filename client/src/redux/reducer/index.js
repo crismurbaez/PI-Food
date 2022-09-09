@@ -13,19 +13,43 @@ import {
     GET_RECIPES_ID,
     GET_DIETS,
     FILTER_DIETS,
+    RESULT_DIET_RESET,
 } from '../actions/index'
-
+import image404 from '../../images/404.png'
 
 const initialState = {
     alldataMemory: [],
     recipes: [],
     recipe: [],
     diets: [],
-    diet: [],
     name: '',
     resultName: [],
+    resultDiets: [],
     orden: '',
     currentPage: 1,
+    recipes404: [
+        {
+            id: 4000000004,
+            name: 'PAGE NOT FOUND',
+            image: image404,
+            diets: ['404'],
+            healthScore: 0,
+        }
+    ],
+    recipe404: [{
+        id: 4000000004,
+        name: 'PAGE NOT FOUND',
+        image: image404,
+        diets: ['404'],
+        healthScore: 0,
+        stepByStep: [],
+        summary: '---------------------------------------------------PAGE NOT FOUND--------------------------------------------------------------'
+        // released: Date(),
+        // platform: [{ id: '404', name: 'PAGE NOT FOUND' }],
+        // description: [<div>'Page not found'</div>]
+    }
+
+    ],
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -47,12 +71,22 @@ const rootReducer = (state = initialState, action) => {
 
 
         case FILTER_DIETS:
-
+            let diet = action.payload;
+            let filterDiets = state.recipes.filter((e) => {
+                return (e.diets.includes(diet))
+            })
+            console.log('filterDiets', filterDiets)
+            filterDiets = (filterDiets.length) ? [filterDiets, []] : [state.recipes404, state.recipe404]
             return {
                 ...state,
-                recipes: state.alldataMemory.filter((e) => {
-                    return (e.diets.includes(action.payload))
-                })
+                recipes: filterDiets[0],
+                recipe: filterDiets[1],
+                resultDiets: [...state.resultDiets, diet],
+            }
+        case RESULT_DIET_RESET:
+            return {
+                ...state,
+                resultDiets: [],
             }
 
         case RECIPE_NAME:
@@ -148,25 +182,8 @@ const rootReducer = (state = initialState, action) => {
         case VIEW_404:
             return {
                 ...state,
-                recipes: [{
-                    id: 4000000004,
-                    name: 'PAGE NOT FOUND',
-                    image: action.payload,
-                    diets: ['404'],
-                    healthScore: 0,
-                }],
-                recipe: [{
-                    id: 4000000004,
-                    name: 'PAGE NOT FOUND',
-                    image: action.payload,
-                    diets: ['404'],
-                    healthScore: 0,
-                    stepByStep: [],
-                    summary: '---------------------------------------------------PAGE NOT FOUND--------------------------------------------------------------'
-                    // released: Date(),
-                    // platform: [{ id: '404', name: 'PAGE NOT FOUND' }],
-                    // description: [<div>'Page not found'</div>]
-                }],
+                recipes: state.recipes404,
+                recipe: state.recipe404,
             }
         case GET_RECIPES_ID:
             return {

@@ -13,6 +13,7 @@ export const VIEW_404 = 'VIEW_404';
 export const GET_RECIPES_ID = 'GET_RECIPES_ID';
 export const GET_DIETS = 'GET_DIETS';
 export const FILTER_DIETS = 'FILTER_DIETS';
+export const RESULT_DIET_RESET = 'RESULT_DIET_RESET';
 
 //instalé axios
 
@@ -109,6 +110,13 @@ export const recipesReset = () => {
 
     return {
         type: RECIPES_RESET,
+    }
+
+};
+export const resultDietReset = () => {
+
+    return {
+        type: RESULT_DIET_RESET,
     }
 
 };

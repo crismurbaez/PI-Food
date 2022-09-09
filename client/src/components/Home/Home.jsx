@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getRecipes } from "../../redux/actions";
-import { recipeReset } from "../../redux/actions";
-import { changePage } from "../../redux/actions";
+import {
+    useState,
+    useEffect
+} from 'react';
+import {
+    useSelector,
+    useDispatch,
+} from "react-redux";
+import {
+    getRecipes,
+    recipeReset,
+    changePage,
+} from "../../redux/actions";
 import s from './Home.module.css';
 import Card from '../Card/Card';
 import Pages from '../Pages/Pages';
@@ -17,7 +23,6 @@ import imageLoader from '../../images/loader.gif'
 const Home = () => {
     const dispatch = useDispatch();
     const recipes = useSelector((state) => { return state.recipes; });
-
     const currentPage = useSelector((state) => { return state.currentPage; });  //página actual
     const [currentRecipes, setcurrentRecipes] = useState([])  //array de recipes mostrados
     const pagination = 9; //cantidad de recipes por página

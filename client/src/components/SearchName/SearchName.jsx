@@ -1,13 +1,16 @@
-import { React, useState } from 'react';
-import { useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import { nameRecipes } from '../../redux/actions';
-import { useSelector } from "react-redux";
-import { getRecipes } from "../../redux/actions";
-import { recipeReset } from "../../redux/actions";
-import { recipesReset } from "../../redux/actions";
-import { nameReset } from "../../redux/actions";
-import { currentPageReset, copyRecipes, view404 } from "../../redux/actions";
+import { React, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import {
+    getRecipes,
+    resultDietReset,
+    recipeReset,
+    recipesReset,
+    nameReset,
+    currentPageReset,
+    copyRecipes,
+    view404,
+    nameRecipes,
+} from "../../redux/actions";
 import imagelupe from '../../images/Lupa3.png'
 import image404 from '../../images/404.png'
 import s from './SearchName.module.css';
@@ -49,12 +52,13 @@ const SearchName = () => {
     // poner en componente aparte
     const handleOnAllRecipes = () => {
         dispatch(currentPageReset());
-        dispatch(recipesReset())
-        dispatch(recipeReset())
-        dispatch(nameReset())
-        dispatch(getRecipes())
-        dispatch(copyRecipes())
-        radioCheckedFalseandAllDiets()
+        dispatch(recipesReset());
+        dispatch(recipeReset());
+        dispatch(nameReset());
+        dispatch(getRecipes());
+        dispatch(copyRecipes());
+        radioCheckedFalseandAllDiets();
+        dispatch(resultDietReset());
     }
 
 
