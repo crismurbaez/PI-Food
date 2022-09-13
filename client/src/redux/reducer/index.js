@@ -14,6 +14,7 @@ import {
     GET_DIETS,
     FILTER_DIETS,
     RESULT_DIET_RESET,
+    POST_RECIPES,
 } from '../actions/index'
 import image404 from '../../images/404.png'
 
@@ -60,6 +61,10 @@ const rootReducer = (state = initialState, action) => {
                 recipes: action.payload[0],
                 alldataMemory: action.payload[0],
 
+            }
+        case POST_RECIPES:
+            return {
+                ...state,
             }
 
         case GET_DIETS:

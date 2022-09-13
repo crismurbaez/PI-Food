@@ -71,6 +71,18 @@ router.get('/:id', (req, res, next) => {
 
 })
 
+router.get('/data', (req, res, next) => {
+    const data = req.body
+    try {
+        if (data) {
+            //guardar la data
+            res.send('OK')
+        }
 
+    } catch (e) {
+        console.log(e)
+    }
+
+})
 
 module.exports = router;

@@ -14,6 +14,8 @@ export const GET_RECIPES_ID = 'GET_RECIPES_ID';
 export const GET_DIETS = 'GET_DIETS';
 export const FILTER_DIETS = 'FILTER_DIETS';
 export const RESULT_DIET_RESET = 'RESULT_DIET_RESET';
+export const POST_RECIPES = 'POST_RECIPES';
+
 
 //instalé axios
 
@@ -34,6 +36,8 @@ export const getRecipes = () => {
     }
 };
 
+
+
 export const getDiets = () => {
     return (dispatch) => {
         axios.get('http://localhost:3001/diets')
@@ -48,6 +52,20 @@ export const getDiets = () => {
             })
 
     }
+};
+
+export const postRecipe = (payload) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post(
+                "http://localhost:3001/recipe",
+                payload
+            );
+            return dispatch({ type: "POST_RECIPE", payload: response });
+        } catch (error) {
+            console.log(error);
+        }
+    };
 };
 
 export const filterDiets = (diet) => {

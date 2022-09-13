@@ -17,7 +17,6 @@ import s from './SearchName.module.css';
 
 const SearchName = () => {
     const [input, setInput] = useState(""); //En el input se ingresa el name
-
     const resultName = useSelector((state) => { return state.resultName; })
 
     const dispatch = useDispatch();

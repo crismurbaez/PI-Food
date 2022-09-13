@@ -46,7 +46,7 @@ const Organize = () => {
     // poner en componente aparte
     const handleOnChangeDiets = (e) => {
         setDiet(e.target.value);
-        console.log(diet)
+        console.log(e.target.value)
         if (e.target.value === "All diets...") {
             console.log('All diets...');
             dispatch(currentPageReset());
@@ -65,6 +65,7 @@ const Organize = () => {
                 console.log('ya filtraste con  ' + e.target.value)
                 :
                 dispatch(filterDiets(e.target.value))
+
         }
     }
 
