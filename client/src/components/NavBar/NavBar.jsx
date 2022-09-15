@@ -8,16 +8,6 @@ import Organize from '../Organize/Organize';
 
 const NavBar = () => {
 
-    // const funciond = () => {
-    //     axios.post('http://localhost:3001/videogames', { 'name': 'jurgo 2 sjkfsd' })
-    //         .then(dataApi => {
-    //             console.log(dataApi.data)
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    // }
-
     return (
         <div className={s.NavBar}>
             <div>
@@ -25,10 +15,15 @@ const NavBar = () => {
                     <img className={s.img} src={imageFlecha} alt="LandingPage" />
                 </Link>
             </div>
+            <div >
+                <Link to="/newRecipe">
+                    <button className={s.recipe}>Create New Recipe</button>
+
+                </Link>
+            </div>
             <div><Organize /></div>
             <div><SearchName /></div>
 
-            {/* <button onClick={funciond}>hola</button> */}
         </div>
     );
 

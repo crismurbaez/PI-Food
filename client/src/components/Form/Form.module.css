@@ -1,19 +1,26 @@
+.container {
+    background-color: rgb(26, 34, 51);
+    background-size: contain;
+
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
-    border: 1px solid rgb(110, 59, 36);
+    background-color: rgb(87, 109, 156);
+    border: 1px solid rgb(17, 28, 53);
     border-radius: 2rem;
     margin: 4rem auto;
     padding-top: 5rem;
     width: 45rem;
-    color: #fadac7ea;
+    color: rgb(17, 28, 53);
     box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3rem);
-    background: linear-gradient(180deg,
-            rgba(101, 81, 62, 0.75) 0%,
-            rgba(98, 94, 87, 0) 100%);
+
 }
 
 .display {
@@ -23,28 +30,28 @@
 }
 
 .input {
-    background-color: rgba(226, 173, 124, 0.301);
-    border: 2px solid rgb(133, 99, 60);
+    background-color: rgb(87, 109, 156);
+    border: 1px solid rgb(17, 28, 53);
     border-radius: 10px;
     width: 20rem;
     height: 2.5rem;
     margin: 0.5rem 0 2rem 0;
-    color: bisque;
+    color: rgb(17, 28, 53);
     padding-left: 0.5rem;
 }
 
 .input::placeholder {
-    color: rgba(250, 235, 215, 0.562);
+    color: rgb(18, 19, 22);
 }
 
 .textarea {
-    background-color: rgba(226, 173, 124, 0.301);
-    border: 2px solid rgb(133, 99, 60);
+    background-color: rgb(87, 109, 156);
+    border: 1px solid rgb(17, 28, 53);
     border-radius: 10px;
     width: 20rem;
     height: 2.5rem;
     margin: 0.5rem 0 2rem 0;
-    color: bisque;
+    color: rgb(17, 28, 53);
     padding-left: 0.5rem;
     resize: none;
 }
@@ -55,26 +62,27 @@
     overflow-wrap: break-word;
     font-size: 0.88rem;
     font-style: italic;
-    color: rgb(252, 176, 166);
-    text-shadow: 0 0 0.2rem #ff0909;
+    color: rgb(46, 23, 45);
+    text-shadow: 0 0 0.2rem #881fdd;
 }
 
 .checkbox {
     text-align: center;
     margin: 0 5rem 0.2rem;
     padding: 0.5rem;
+    background-color: rgb(87, 109, 156);
+    /* border: 1px solid rgb(17, 28, 53); */
 }
 
 .btnCreation {
     margin: 3.5rem 0 5rem 0;
-    color: #eed9b9;
-    text-shadow: 0 0 0.2rem#805a2e;
+    color: rgb(175, 181, 196);
+
     font-size: 15px;
     width: fit-content;
     padding: 0.8rem;
-    background: linear-gradient(rgba(252, 176, 101, 0.87) 0%,
-            rgb(121, 45, 16) 100%);
-
+    background-color: rgb(11, 17, 31);
+    border: 1px solid rgb(17, 28, 53);
     backdrop-filter: blur(4px);
     border: none;
     border-radius: 4rem;
@@ -89,7 +97,6 @@
     outline: none;
     background-color: transparent;
 
-    /* Añado mis propios estilos */
     width: 98%;
     height: 0.55rem;
     border-radius: 20px;
@@ -101,7 +108,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: 25rem;
-    background-color: rgb(248, 144, 74);
+    background-color: rgb(87, 109, 156);
     margin: -0.2rem 0 0 -0.1rem;
 }
 
@@ -110,14 +117,31 @@
     width: 1rem;
     height: 1rem;
     border-radius: 25rem;
-    background-color: rgb(248, 144, 74);
+    background-color: rgb(17, 28, 53);
     margin: -0.2rem 0 0 -0.1rem;
 }
 
 .stats::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    background-color: rgba(226, 173, 124, 0.301);
-    height: 0.6rem;
-    border: 1px solid rgb(133, 99, 60);
+    background-color: rgb(87, 109, 156);
+    height: 10.6rem;
+    border: 1px solid rgb(17, 28, 53);
     border-radius: 3rem;
+
+}
+
+.imgHome {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    background-color: rgb(131, 146, 179);
+    box-shadow: 3.9px 7.8px 20px hsl(0deg 0% 0% / 0.38);
+    border-radius: 10px;
+    /* border-style: dashed; */
+}
+
+.imgHome:hover {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
 }

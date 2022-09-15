@@ -27,6 +27,7 @@ const initialState = {
     resultName: [],
     resultDiets: [],
     orden: '',
+    newRecipe: false,
     currentPage: 1,
     recipes404: [
         {
@@ -65,6 +66,7 @@ const rootReducer = (state = initialState, action) => {
         case POST_RECIPES:
             return {
                 ...state,
+                newRecipe: true,
             }
 
         case GET_DIETS:

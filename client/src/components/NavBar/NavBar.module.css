@@ -28,3 +28,22 @@
     margin-left: 0px;
     margin-right: 0px;
 }
+
+.recipe {
+    text-decoration: none;
+    font-style: italic;
+    font-size: small;
+    background-color: rgb(220, 231, 231);
+
+    /* opacity: 0.8; */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    /* border-style: dotted; */
+    box-shadow: inset 3px 3px 3px rgba(255, 255, 255, .7), inset;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    width: 100px;
+
+
+}

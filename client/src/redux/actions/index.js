@@ -61,7 +61,10 @@ export const postRecipe = (payload) => {
                 "http://localhost:3001/recipe",
                 payload
             );
-            return dispatch({ type: "POST_RECIPE", payload: response });
+            return dispatch({
+                type: POST_RECIPES,
+                payload: response,
+            });
         } catch (error) {
             console.log(error);
         }

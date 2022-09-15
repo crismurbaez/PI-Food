@@ -101,7 +101,7 @@ const Organize = () => {
                 <div>Sort by score</div>
                 <div className={s.organize} onChange={handleOnChangeScore}>
 
-                    <div> Menor
+                    <div> Lowest
                         <input
                             type="radio"
                             id="p"
@@ -109,7 +109,7 @@ const Organize = () => {
                             value='p'
                         />
                     </div>
-                    <div> Mayor
+                    <div> Highest
                         <input
                             className={s.radio}
                             type="radio"
