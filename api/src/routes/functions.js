@@ -64,8 +64,17 @@ module.exports = {
 
     getDb: async () => {
         //Pido a la base de datos
+
         try {
-            const dbRecipes = await Recipe.findAll();
+            const dbRecipes = await Recipe.findAll({
+                include: {
+                    model: Diets,
+                    attributes: ["name"],
+                    through: {
+                        attributes: [],
+                    },
+                },
+            })
             console.log('base de datos --------', dbRecipes)
             dbData = dbRecipes;
             return dbData;
@@ -75,7 +84,7 @@ module.exports = {
     },
 
     getAllData: () => {
-        alldata = [...dbData, ...apiData];
+        alldata = [...apiData, ...dbData];
     },
 
     returnDbData: () => {
