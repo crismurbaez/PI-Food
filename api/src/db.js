@@ -3,47 +3,47 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_URLINI, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DATABASE } = process.env;
+  DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 //DB_NAME  --> heroku te da el nombre de la base de datos, ver cómo funciona con otros métodos
 //ESTE ES EL NUEVO CÓDIGO PARA PODER HACER EL DEPLOY EN HEROKU //////////
-// let sequelize =
-//   process.env.NODE_ENV === "production"
-//     ? new Sequelize({
-//       database: DB_NAME,
-//       dialect: "postgres",
-//       host: DB_HOST,
-//       port: DB_PORT,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433 y ahora le puse variable de entorno
-//       username: DB_USER,
-//       password: DB_PASSWORD,
-//       pool: {
-//         max: 3,
-//         min: 1,
-//         idle: 10000,
-//       },
-//       dialectOptions: {
-//         ssl: {
-//           require: true,
-//           // Ref.: https://github.com/brianc/node-postgres/issues/2009
-//           rejectUnauthorized: false,
-//         },
-//         keepAlive: true,
-//       },
-//       ssl: true,
-//     })
-//     : new Sequelize(
-//       `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,  //development --> lo reemplacé por food
-//       { logging: false, native: false }
-//     );
+let sequelize =
+  process.env.NODE_ENV === "production"
+    ? new Sequelize({
+      database: DB_DATABASE,
+      dialect: "postgres",
+      host: DB_HOST,
+      port: DB_PORT,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433 y ahora le puse variable de entorno
+      username: DB_USER,
+      password: DB_PASSWORD,
+      pool: {
+        max: 3,
+        min: 1,
+        idle: 10000,
+      },
+      dialectOptions: {
+        ssl: {
+          require: true,
+          // Ref.: https://github.com/brianc/node-postgres/issues/2009
+          rejectUnauthorized: false,
+        },
+        keepAlive: true,
+      },
+      ssl: true,
+    })
+    : new Sequelize(
+      `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,  //development --> lo reemplacé por food
+      { logging: false, native: false }
+    );
 //este es una combinación de lo que tenía antes con los datos que proporciona railway
 // const sequelize = new Sequelize(`postgres://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
 //   logging: false, // set to console.log to see the raw SQL queries
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
 ////////////////////////////////////DATABASE_URL de railway//////////////////////////////////////
-const sequelize = new Sequelize(`postgresql://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+// const sequelize = new Sequelize(`postgresql://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
 /////////ESTO SE REEMPLAZA POR NUEVO CÓDIGO PARA PODER HACER EL DEPLOY///////////////////////
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`, {
 //   logging: false, // set to console.log to see the raw SQL queries
