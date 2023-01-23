@@ -3,17 +3,17 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+  DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 //DB_NAME  --> heroku te da el nombre de la base de datos, ver cómo funciona con otros métodos
 //ESTE ES EL NUEVO CÓDIGO PARA PODER HACER EL DEPLOY EN HEROKU //////////
 // postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-      database: "railway",
+      database: DB_NAME,
       dialect: "postgres",
       host: DB_HOST,
-      port: 5859,
+      port: DB_PORT,
       username: DB_USER,
       password: DB_PASSWORD,
       pool: {
