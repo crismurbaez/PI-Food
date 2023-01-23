@@ -9,7 +9,7 @@ const {
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-      database: DB_DATABASE,
+      database: DB_NAME,
       dialect: "postgres",
       host: DB_HOST,
       port: 5433,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433 y ahora le puse variable de entorno
