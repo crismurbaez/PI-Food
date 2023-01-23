@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 //DB_NAME  --> heroku te da el nombre de la base de datos, ver cómo funciona con otros métodos
 //ESTE ES EL NUEVO CÓDIGO PARA PODER HACER EL DEPLOY//////////
 let sequelize =
@@ -12,7 +12,7 @@ let sequelize =
       database: DB_NAME,
       dialect: "postgres",
       host: DB_HOST,
-      port: 5433,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433
+      port: DB_PORT,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433 y ahora le puse variable de entorno
       username: DB_USER,
       password: DB_PASSWORD,
       pool: {
