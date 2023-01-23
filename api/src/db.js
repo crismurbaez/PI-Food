@@ -13,7 +13,7 @@ let sequelize =
       database: "railway",
       dialect: "postgres",
       host: DB_HOST,
-      port: DB_PORT,    //aquí decía 5432, que es el puerto que te suele dar postgres, pero yo tengo 5433 y ahora le puse variable de entorno
+      port: 5859,
       username: DB_USER,
       password: DB_PASSWORD,
       pool: {
