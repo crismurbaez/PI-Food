@@ -35,15 +35,15 @@ const {
 //       { logging: false, native: false }
 //     );
 //este es una combinación de lo que tenía antes con los datos que proporciona railway
-const sequelize = new Sequelize(`${{ DB_URLINI }}://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
-////////////////////////////////////DATABASE_URL de railway//////////////////////////////////////
-// const sequelize = new Sequelize(`postgresql://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
+// const sequelize = new Sequelize(`postgres://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
 //   logging: false, // set to console.log to see the raw SQL queries
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
+////////////////////////////////////DATABASE_URL de railway//////////////////////////////////////
+const sequelize = new Sequelize(`postgresql://${{ DB_USER }}:${{ DB_PASSWORD }}@${{ DB_HOST }}:${{ DB_PORT }}/${{ DB_DATABASE }}`, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+});
 /////////ESTO SE REEMPLAZA POR NUEVO CÓDIGO PARA PODER HACER EL DEPLOY///////////////////////
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`, {
 //   logging: false, // set to console.log to see the raw SQL queries
