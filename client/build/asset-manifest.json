@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b115d775.chunk.css",
+    "main.js": "/static/js/main.fd176227.chunk.js",
+    "main.js.map": "/static/js/main.fd176227.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d4337050.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d4337050.js.map",
+    "static/js/2.2c458c73.chunk.js": "/static/js/2.2c458c73.chunk.js",
+    "static/js/2.2c458c73.chunk.js.map": "/static/js/2.2c458c73.chunk.js.map",
+    "static/js/3.fd80b954.chunk.js": "/static/js/3.fd80b954.chunk.js",
+    "static/js/3.fd80b954.chunk.js.map": "/static/js/3.fd80b954.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b115d775.chunk.css.map": "/static/css/main.b115d775.chunk.css.map",
+    "static/js/2.2c458c73.chunk.js.LICENSE.txt": "/static/js/2.2c458c73.chunk.js.LICENSE.txt",
+    "static/media/404.e5f39230.png": "/static/media/404.e5f39230.png",
+    "static/media/LandingPage.module.css": "/static/media/Dieta-Mediterránea.fb68ba3a.jpg",
+    "static/media/Lupa3.46743afe.png": "/static/media/Lupa3.46743afe.png",
+    "static/media/NavBar.module.css": "/static/media/NavBar.b6463f8e.png",
+    "static/media/Pizarra.b882e6c1.jpg": "/static/media/Pizarra.b882e6c1.jpg",
+    "static/media/estrella.6a69086d.png": "/static/media/estrella.6a69086d.png",
+    "static/media/flecha.6d348019.png": "/static/media/flecha.6d348019.png",
+    "static/media/home.9077aa62.png": "/static/media/home.9077aa62.png",
+    "static/media/loader.a1a99674.gif": "/static/media/loader.a1a99674.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d4337050.js",
+    "static/js/2.2c458c73.chunk.js",
+    "static/css/main.b115d775.chunk.css",
+    "static/js/main.fd176227.chunk.js"
+  ]
+}

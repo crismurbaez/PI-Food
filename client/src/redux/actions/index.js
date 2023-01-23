@@ -23,7 +23,7 @@ export const POST_RECIPES = 'POST_RECIPES';
 export const getRecipes = () => {
 
     return (dispatch) => {
-        axios.get('http://localhost:3001/recipes')
+        axios.get('/recipes')
             .then(dataApi => {
                 return dispatch({
                     type: GET_RECIPES,
@@ -40,7 +40,7 @@ export const getRecipes = () => {
 
 export const getDiets = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3001/diets')
+        axios.get('/diets')
             .then(dataApi => {
                 return dispatch({
                     type: GET_DIETS,
@@ -58,7 +58,7 @@ export const postRecipe = (payload) => {
     return async (dispatch) => {
         try {
             const response = await axios.post(
-                "http://localhost:3001/recipe",
+                "/recipe",
                 payload
             );
             return dispatch({
@@ -82,7 +82,7 @@ export const filterDiets = (diet) => {
 export const getRecipesId = (id) => {
 
     return (dispatch) => {
-        axios.get(`http://localhost:3001/recipes/${id}`)
+        axios.get(`/recipes/${id}`)
             .then(dataApi => {
                 return dispatch({
                     type: GET_RECIPES_ID,
@@ -100,7 +100,7 @@ export const getRecipesId = (id) => {
 export function nameRecipes(name) {
     //si hago el filtro en el back
     return (dispatch) => {
-        axios.get(`http://localhost:3001/recipes?name=${name}`)
+        axios.get(`/recipes?name=${name}`)
             .then(dataApi => {
                 return dispatch({
                     type: RECIPE_NAME,
