@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from "react";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -11,7 +12,8 @@ import axios from 'axios'
 import dotenv from 'dotenv';
 dotenv.config();
 //AL AGREGAR ESTA LÍNEA SE ELIMINAN DE LAS ACCIONES DE REDUX ESTA PARTE DE LA DIRECCIÓN
-axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
+const { REACT_APP_API } = process.env
+axios.defaults.baseURL = 'pi-food-production-e0be.up.railway.app' || 'http://localhost:3001';
 //////////////////////////////////////////////////////////////////////////////////////////
 ReactDOM.render(
   <React.StrictMode>
