@@ -13,7 +13,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 //AL AGREGAR ESTA LÍNEA SE ELIMINAN DE LAS ACCIONES DE REDUX ESTA PARTE DE LA DIRECCIÓN
 const { REACT_APP_API } = process.env
-axios.defaults.baseURL = 'https://pi-food-production-e0be.up.railway.app';
+axios.defaults.baseURL = "http://localhost:3001";
+console.log('api---------------->' + REACT_APP_API)
 //////////////////////////////////////////////////////////////////////////////////////////
 ReactDOM.render(
   <React.StrictMode>
