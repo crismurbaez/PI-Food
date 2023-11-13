@@ -13,8 +13,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 //AL AGREGAR ESTA LÍNEA SE ELIMINAN DE LAS ACCIONES DE REDUX ESTA PARTE DE LA DIRECCIÓN
 const { REACT_APP_API } = process.env
-axios.defaults.baseURL = "http://localhost:3001";
-console.log('api---------------->' + REACT_APP_API)
+//dejó de funcionar railways, tengo que hacer el deployment en vercel
+// 'https://pi-food-production-e0be.up.railway.app'
+axios.defaults.baseURL = 'http://localhost:3001';
+
 //////////////////////////////////////////////////////////////////////////////////////////
 ReactDOM.render(
   <React.StrictMode>
