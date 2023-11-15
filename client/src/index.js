@@ -7,17 +7,14 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store'
-//NUEVO CÓDIGO PARA HACER EL DEPLOY////////////////////////////////////////////////////////
 import axios from 'axios'
 import dotenv from 'dotenv';
 dotenv.config();
-//AL AGREGAR ESTA LÍNEA SE ELIMINAN DE LAS ACCIONES DE REDUX ESTA PARTE DE LA DIRECCIÓN
-const { REACT_APP_API } = process.env
-//dejó de funcionar railways, tengo que hacer el deployment en vercel
-// 'https://pi-food-production-e0be.up.railway.app'
-axios.defaults.baseURL = 'http://localhost:3001';
 
-//////////////////////////////////////////////////////////////////////////////////////////
+const API = process.env.REACT_APP_API
+
+axios.defaults.baseURL = API;
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
