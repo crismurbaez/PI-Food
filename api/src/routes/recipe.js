@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
             stepByStep,
             createdByUser,
         } = req.body;
-        console.log('back post', name, image, diets)
+        // console.log('back post', name, image, diets)
         const newRecipe = await Recipe.create({
             name,
             image:
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
         });
 
         newRecipe.addDiets(diet);
-        console.log(newRecipe)
+        // console.log(newRecipe)
         // return res.status(200).send("Recipe created succesfully!");
         return res.send(newRecipe);
     } catch (error) {

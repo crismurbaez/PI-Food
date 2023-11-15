@@ -75,7 +75,7 @@ module.exports = {
                     },
                 },
             })
-            console.log('base de datos --------', dbRecipes)
+            // console.log('base de datos --------', dbRecipes)
             dbData = dbRecipes;
             return dbData;
         } catch (e) {
@@ -118,7 +118,7 @@ module.exports = {
             filterNames = alldata.filter((e) => {
                 return (e.name.toUpperCase().includes(name.toUpperCase()))
             });
-            console.log('estoy en filterNames', alldata)
+            // console.log('estoy en filterNames', alldata)
             //En result[0] guardo el array filtrado por name, 
             //en result[1] guardo el texto que muestra el front del resultado de la búsqueda
             //en result[2] guardo el éxito (e) o fracaso (f) de la búsqueda

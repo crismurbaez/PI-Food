@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
                 dataName = getDataName(name.trim());
                 resultName = returnResultName();
                 if (resultName[1] === 'f') {
-                    console.log(resultName)
+                    // console.log(resultName)
                     resetAllData()
                 } else {
                     // console.log(resultName)
@@ -51,7 +51,7 @@ router.get('/', (req, res, next) => {
             } else {
                 resetResultName()
                 if (dataApi.length) {
-                    console.log('no pido a la API-------')
+                    // console.log('no pido a la API-------')
                     resetAllData();
                     getAllData();
                     allData = returnAllData()
@@ -60,7 +60,7 @@ router.get('/', (req, res, next) => {
                     try {
                         getApi()
                             .then((r) => {
-                                console.log('SIII pido a la API-------')
+                                // console.log('SIII pido a la API-------')
                                 resetAllData();
                                 getAllData();
                                 allData = returnAllData()
@@ -92,11 +92,11 @@ router.get('/:id', (req, res, next) => {
         })
         .then((r) => {
             allData = returnAllData()
-            console.log('getId', allData[0], allData[1])
+            // console.log('getId', allData[0], allData[1])
         })
         .then((r) => {
             dataId = getDataId(id);
-            console.log('dataId back', dataId)
+            // console.log('dataId back', dataId)
             res.json(dataId);
         })
         .catch((e) => {

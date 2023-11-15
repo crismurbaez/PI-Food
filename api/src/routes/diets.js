@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
         if (diets.length === 0) {
             diets = getDiets()
         }
-        console.log('pido diets------------------')
-        console.log(diets)
+        // console.log('pido diets------------------')
+        // console.log(diets)
         res.json(diets);
     } catch (e) {
         console.log(e);
