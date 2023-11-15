@@ -19,7 +19,7 @@ const Detail = ({ id }) => {
     useEffect(() => {
         (resultName)[1] === 'f' ? dispatch(view404(image404)) : dispatch(getRecipesId(id))
     }, [dispatch, id, resultName]);
-    console.log('recipe', recipe)
+    // console.log('recipe', recipe)
 
 
     let n = 0;

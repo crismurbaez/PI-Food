@@ -82,7 +82,7 @@ const rootReducer = (state = initialState, action) => {
             let filterDiets = state.recipes.filter((e) => {
                 return (e.diets.includes(diet))
             })
-            console.log('filterDiets', filterDiets)
+            // console.log('filterDiets', filterDiets)
             filterDiets = (filterDiets.length) ? [filterDiets, []] : [state.recipes404, state.recipe404]
             return {
                 ...state,

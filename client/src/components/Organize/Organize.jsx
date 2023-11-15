@@ -46,9 +46,9 @@ const Organize = () => {
     // poner en componente aparte
     const handleOnChangeDiets = (e) => {
         setDiet(e.target.value);
-        console.log(e.target.value)
+        // console.log(e.target.value)
         if (e.target.value === "All diets...") {
-            console.log('All diets...');
+            // console.log('All diets...');
             dispatch(currentPageReset());
             dispatch(recipesReset());
             dispatch(recipeReset());
@@ -59,7 +59,7 @@ const Organize = () => {
             dispatch(resultDietReset());
         } else if
             (resultName[1] === 'f') {
-            console.log('no hay recipes')
+            // console.log('no hay recipes')
         } else {
             (resultDiets.includes(e.target.value)) ?
                 console.log('ya filtraste con  ' + e.target.value)
@@ -70,7 +70,7 @@ const Organize = () => {
     }
 
 
-    console.log('diets', diets)
+    // console.log('diets', diets)
 
     return (
         <div className={s.container}>

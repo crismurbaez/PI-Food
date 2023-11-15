@@ -41,12 +41,12 @@ const Home = () => {
         setcurrentRecipes(recipes.slice(initialPage, finalPage))
     }, [recipes, initialPage, finalPage])
 
-    console.log(currentRecipes)
-    console.log(recipes)
-    console.log(currentPage)
-    console.log(initialPage)
-    console.log(finalPage)
-    console.log(currentRecipes.length)
+    // console.log(currentRecipes)
+    // console.log(recipes)
+    // console.log(currentPage)
+    // console.log(initialPage)
+    // console.log(finalPage)
+    // console.log(currentRecipes.length)
 
 
     return (
